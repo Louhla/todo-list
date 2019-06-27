@@ -4,3 +4,20 @@ body {
 .doneItem{
     text-decoration: line-through;
 }
+.list{
+    background: white;
+    min-width: 100px;
+    max-width: 500px;
+}
+.toDelete{
+    color: black;
+}
+.notDelete{
+    color: lightgrey;
+}
+.icon{
+    margin-left: 50px;
+}
+/* .item{
+    display: inline-block;
+} */

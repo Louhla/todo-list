@@ -5,6 +5,7 @@ class App extends React.Component {
         this.createTodo = this.createTodo.bind(this);
         this.createDone = this.createDone.bind(this);
         this.createRedo = this.createRedo.bind(this);
+        this.deleteItem = this.deleteItem.bind(this);
         this.state = {
             todo: [],
             done: []
@@ -46,13 +47,28 @@ class App extends React.Component {
             }
         }
     }
+    deleteItem(deletedTodo) {
+        var arr = this.state.todo;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === deletedTodo) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+    }
 
     render() {
         return (
             <div>
-                <input ref={this.saveInput} type="text" placeholder="My next todo"></input><button onClick={this.createTodo}>add</button>
-                <Todo handleClick={this.createDone} listItem={this.state.todo} />
-                <Done handleClick={this.createRedo} listItemDone={this.state.done} />
+                <h1>My Todos</h1>
+                <input autofocus="autofocus" ref={this.saveInput} type="text" placeholder="My next todo"></input><button onClick={this.createTodo}>Add</button>
+                {/* <select onChange={this.select}>
+                    <option ref={this.saveInput} value="high">High</option>
+                    <option ref={this.saveInput} value="medium">Medium</option>
+                    <option ref={this.saveInput} value="low">Low</option>
+                </select> */}
+                <Todo handleClick={this.createDone} handleDelete={this.deleteItem} listItem={this.state.todo} />
+                <Done handleClick={this.createRedo}  listItemDone={this.state.done} />
             </div>
         );
     }
@@ -73,12 +89,12 @@ class Done extends React.Component {
     }
     render() {
         var listItemDone = this.props.listItemDone;
-        var updatedDone = [];
-        for (var i = 0; i < listItemDone.length; i++) {
-            updatedDone.push(<li key={i} onClick={this.setTodo} id={listItemDone[i]} className="doneItem">{listItemDone[i]}</li>)
-        }
+        var updatedDone = listItemDone.map((x, i) =>
+            <div key={i} className="item"><li onClick={this.setTodo} id={listItemDone[i]} className="doneItem">{listItemDone[i]}</li><span onMouseOver="" className="icon"><i className={"fas fa-times " + this.state.isDelete}></i></span></div>);
+
         return (
-            <div>
+            <div className="list" >
+                <h3>Done</h3>
                 <ul>
                     {updatedDone}
                 </ul>
@@ -88,27 +104,41 @@ class Done extends React.Component {
 }
 
 
+
 class Todo extends React.Component {
     constructor(props) {
         super(props);
         this.setDone = this.setDone.bind(this);
+        // this.showDeleteButton = this.showDeleteButton.bind(this);
+        this.itemToDelete = this.itemToDelete.bind(this);
         this.state = {
             done: [],
-            todo: this.props.listItem
+            todo: this.props.listItem,
+            isDelete: "notDelete"
         }
     }
     setDone(e) {
         var done = e.target.id
         this.props.handleClick(done);
     }
+
+    // showDeleteButton() {
+    //     var newState = "toDelete"
+    //     this.setState({
+    //         isDelete: newState
+    //     })
+    // }
+    itemToDelete(e){
+        var done = e.target.id
+        this.props.handleClick(done);
+    }
     render() {
         var listItem = this.props.listItem;
-        var updatedTodo = [];
-        for (var i = 0; i < listItem.length; i++) {
-            updatedTodo.push(<li key={i} onClick={this.setDone} id={listItem[i]}>{listItem[i]}</li>)
-        }
+        var updatedTodo = listItem.map((x, i) =>
+            <div key={i} className="item"><li onClick={this.setDone} id={listItem[i]}>{listItem[i]}</li><span onClick={this.itemToDelete} id={listItem[i]} className={this.state.isDelete}><i className="fas fa-times"></i></span></div>);
         return (
-            <div>
+            <div className="list">
+                <h3>Todo</h3>
                 <ul>
                     {updatedTodo}
                 </ul>
