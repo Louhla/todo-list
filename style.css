@@ -1,3 +1,6 @@
 body {
-    background: thistle;
+    background: lightsalmon;
+}
+.doneItem{
+    text-decoration: line-through;
 }
