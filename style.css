@@ -1,0 +1,33 @@
+body {
+    background: white;
+}
+.green{
+    background: green;
+    margin: 5px;
+    display: inline-block;
+}
+.blue{
+    background: blue;
+    margin: 5px;
+    display: inline-block;
+}
+.purple{
+    background: purple;
+    margin: 5px;
+    display: inline-block;
+}
+div{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+#box{
+    height:100px;
+    width: 100px;
+    display: inline-block;
+}
+.vanilla{
+    height:100px;
+    width: 100px;
+    display: inline-block;
+}
