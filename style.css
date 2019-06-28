@@ -1,23 +1,104 @@
 body {
-    background: lightsalmon;
+    /* background: #7EDBD4; */
+    background-image: linear-gradient(to bottom right, #7EDBD4, white);
+    margin: 0px;
+    color: #234E5A;
+    font-family: sans-serif;
+}
+#root{
+    text-align: center;
+}
+h1{
+    color: #234E5A;
+    font-size: 60px;
+}
+h3{
+    font-size: 25px;
+    padding-top: 10px;
+    margin-bottom: 0px;
 }
 .doneItem{
     text-decoration: line-through;
 }
 .list{
-    background: white;
+    background: #E52E3B ;
     min-width: 100px;
     max-width: 500px;
 }
-.toDelete{
-    color: black;
-}
-.notDelete{
-    color: lightgrey;
+.x{
+    color: #7B1A25;
+    position: absolute;
+    right: 9px;
 }
 .icon{
-    margin-left: 50px;
+    position: relative;
+    right: -80px;
 }
-/* .item{
+.item{
+    text-align: left;
+    margin: 5px;
+    padding: 5px;
+    background: #7EDBD4;
+    transition: all .2s ease-in-out; 
+    border-radius: 10px;
+    box-shadow: 5px 10px 8px -10px #888888;
+}
+.item:hover{
+    transform: scale(1.01);
+}
+#input-field{
+    height: 50px;
+    width: 440px;
+    background-color: #60C5B6;
+    color: #234E5A;
+    border-radius: 10px;
+    border: 2px solid #7EDBD4;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+    box-shadow: 5px 10px 8px -10px #888888;
+}
+::placeholder{
+    color: #234E5A;
+}
+#submit-button{
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    color: #E52E3B;
+    background-color: #7B1A25;
+    border-style: none;
+    border: 2px solid #E52E3B;
+    outline: none;
+    transition: all .2s ease-in-out; 
+    box-shadow: 5px 10px 8px -10px #888888;
+}
+#submit-button:hover{
+    transform: scale(1.1);
+}
+.container{
     display: inline-block;
-} */
+    width: 800px;
+    height: 100%;
+    background: #F1BE10 ;
+}
+.list{
+    display: block;
+    width: 500px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    position: relative;
+    left: 150px;
+    box-shadow: 5px 10px 8px -10px #888888;
+}
+.doneItem, .todoItem{
+    display: inline-block;
+}
+.header{
+    background: white;
+    height: 143px;
+    padding-top: 1px;
+    margin-bottom: 50px;
+}
