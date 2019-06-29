@@ -1,6 +1,6 @@
 body {
     /* background: #7EDBD4; */
-    background-image: linear-gradient(to bottom right, #7EDBD4, white);
+    background-image: linear-gradient(to bottom right, #E3E9FE, white);
     margin: 0px;
     color: #234E5A;
     font-family: sans-serif;
@@ -11,6 +11,15 @@ body {
 h1{
     color: #234E5A;
     font-size: 60px;
+    display: inline-block;
+    position: relative;
+    left: 7%;
+}
+img{
+    position: relative;
+    left: 185px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 h3{
     font-size: 25px;
@@ -46,25 +55,17 @@ h3{
     animation-fill-mode: fill;
     animation-direction: normal;
 }
-.list{
-    background: #E52E3B ;
-    min-width: 100px;
-    max-width: 500px;
-}
 .x{
     color: #7B1A25;
     position: absolute;
     right: 12px;
 }
-/* .icon{
-    position: relative;
-    right: -80px;
-} */
 .item{
     text-align: left;
     margin: 5px;
     padding: 5px;
-    background: #7EDBD4;
+    background: #E3E9FE;
+    border: 2px solid white;
     transition: all .2s ease-in-out; 
     border-radius: 10px;
     box-shadow: 5px 10px 8px -10px #888888;
@@ -76,13 +77,14 @@ h3{
 #input-field{
     height: 50px;
     width: 440px;
-    background-color: #60C5B6;
+    background-color: #E3E9FE;
     color: #234E5A;
     border-radius: 10px;
-    border: 2px solid #7EDBD4;
+    border: 3px solid #AF7EEC;
     text-align: center;
     outline: none;
     font-size: 16px;
+    font-weight: bold;
     box-sizing: border-box;
     box-shadow: 5px 10px 8px -10px #888888;
 }
@@ -94,10 +96,10 @@ h3{
     width: 60px;
     height: 60px;
     font-size: 30px;
-    color: #E52E3B;
-    background-color: #7B1A25;
+    color: #234E5A;
+    background-color: rgb(210, 186, 240);
     border-style: none;
-    border: 2px solid #E52E3B;
+    border: 3px solid #234E5A;
     outline: none;
     transition: all .2s ease-in-out; 
     box-shadow: 5px 10px 8px -10px #888888;
@@ -109,32 +111,48 @@ h3{
     display: inline-block;
     width: 800px;
     height: 100%;
-    background: #F1BE10 ;
+    background: #E3E9FE ;
 }
 .list{
     display: block;
-    width: 500px;
+    background: #E3E9FE ;
+    min-width: 100px;
+    max-width: 583px;
     padding-bottom: 5px;
     border-radius: 10px;
     position: relative;
-    left: 150px;
-    box-shadow: 5px 10px 8px -10px #888888;
+    left: 108.5px;
+    box-shadow: 5px 3px 8px -2px #888888;
 }
 .doneItem, .todoItem{
     display: inline-block;
 }
 .header{
-    background: white;
+    background: #AF7EEC;
     height: 143px;
     padding-top: 1px;
     margin-bottom: 50px;
 }
 .low{
-    background: green;
+    background: rgb(238, 225, 181);
 }
 .medium{
-    background: yellow;
+    background: rgb(200, 224, 222);
 }
 .high{
-    background: red;
+    background: rgb(203, 175, 238);
+}
+select{
+    height: 50px;
+    background-color: #E3E9FE;
+    color: #234E5A;
+    border-radius: 10px;
+    border: 3px solid #AF7EEC;
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 1px;
+    box-sizing: border-box;
+    box-shadow: 5px 10px 8px -10px #888888;
 }

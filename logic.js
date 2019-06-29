@@ -52,7 +52,7 @@ class App extends React.Component {
         var new_done = {
             task: doneTodo.task,
             id: doneTodo.id,
-            prio:doneTodo.prio
+            prio: doneTodo.prio
         };
         this.state.done.push(new_done);
         this.setState({
@@ -99,13 +99,15 @@ class App extends React.Component {
             <div className="container">
                 <div className="header">
                     <h1>My Todos</h1>
+                    <img src="./logo.jpg"/>
                 </div>
                 <form onSubmit={this.createTodo}>
                     <input id="input-field" spellCheck="false" ref={input => this.task = input} type="text" placeholder="My next todo"></input>
                     <select ref={input => this.prio = input}>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
+                        <option selected disabled>Priority</option>
                         <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
                     </select>
                     <input id="submit-button" type="submit" value="+" ></input>
                 </form>
@@ -132,8 +134,8 @@ class Done extends React.Component {
     render() {
         var listItemDone = this.props.listItemDone;
         var updatedDone = listItemDone.map((x, i) =>
-            <div key={i} className="item"><div onClick={() => this.setTodo(listItemDone[i])} id={listItemDone[i].id} className={`doneItem ${listItemDone[i].prio}`}>{listItemDone[i].task}</div>
-                <span className="x" onClick={() => this.itemToDelete(listItemDone[i])}><i id={listItemDone[i].id} className="fas fa-times"></i></span></div>);
+            <div key={i} className="item"><div onClick={() => this.setTodo(listItemDone[i])} className="doneItem">{listItemDone[i].task}</div>
+                <span className="x" onClick={() => this.itemToDelete(listItemDone[i])}><i className="fas fa-times"></i></span></div>);
 
         return (
             <div className="list" >
@@ -165,8 +167,8 @@ class Todo extends React.Component {
     render() {
         var listItem = this.props.listItem;
         var updatedTodo = listItem.map((x, i) =>
-            <div key={i} className="item"><div onClick={() => this.setDone(listItem[i])} id={listItem[i].id} className={`todoItem ${listItem[i].prio}`}>{listItem[i].task}</div>
-                <span onClick={() => this.itemToDelete(listItem[i])} className="x"><i id={listItem[i].id} className="fas fa-times"></i></span></div>);
+            <div key={i} className={`item ${listItem[i].prio}`}><div onClick={() => this.setDone(listItem[i])} className="todoItem">{listItem[i].task}</div>
+                <span onClick={() => this.itemToDelete(listItem[i])} className="x"><i className="fas fa-times"></i></span></div>);
         return (
             <div className="list">
                 <h3>Todo</h3>
