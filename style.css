@@ -111,11 +111,12 @@ h3{
     display: inline-block;
     width: 800px;
     height: 100%;
-    background: #E3E9FE ;
+    background: #E3E9FE;
+    box-shadow: 15px 9px 27px -14px #888888;
 }
 .list{
     display: block;
-    background: #E3E9FE ;
+    background: #E3E9FE;
     min-width: 100px;
     max-width: 583px;
     padding-bottom: 5px;

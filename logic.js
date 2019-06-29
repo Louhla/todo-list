@@ -172,9 +172,7 @@ class Todo extends React.Component {
         return (
             <div className="list">
                 <h3>Todo</h3>
-
                 {updatedTodo}
-
             </div>
         );
     }
