@@ -111,6 +111,7 @@ h3{
     display: inline-block;
     width: 800px;
     height: 100%;
+    margin-top: 15px;
     background: #E3E9FE;
     box-shadow: 15px 9px 27px -14px #888888;
 }
