@@ -17,14 +17,15 @@ class App extends React.Component {
     // }
     createTodo(event) {
         event.preventDefault();
-        var newIndex = this.state.index+1;
+        var newIndex = this.state.index + 1;
         var new_todo = {
             task: this.task.value,
             // prio: this.prio.value,
             id: newIndex
         };
         this.state.todo.push(new_todo);
-        this.setState({ todo: this.state.todo ,index:newIndex});
+        this.setState({ todo: this.state.todo, index: newIndex });
+        this.task.value = "";
     }
     createRedo(redo) {
         var new_redo = {
@@ -131,15 +132,14 @@ class Done extends React.Component {
     setTodo(e) {
         this.props.handleClick(e.target);
     }
-    itemToDelete() {
-        var deleteId = this.delete.id;
-        this.props.handleDelete(deleteId);
+    itemToDelete(e) {
+        this.props.handleDelete(e.target.id);
     }
     render() {
         var listItemDone = this.props.listItemDone;
         var updatedDone = listItemDone.map((x, i) =>
-            <div key={i} className="item"><div onClick={this.setTodo} id={listItemDone[i].id} className="doneItem" ref={click => this.delete = click}>{listItemDone[i].task}</div>
-                <span className="x" onClick={this.itemToDelete}><i className="fas fa-times"></i></span></div>);
+            <div key={i} className="item"><div onClick={this.setTodo} id={listItemDone[i].id} className="doneItem">{listItemDone[i].task}</div>
+                <span className="x" onClick={this.itemToDelete}><i id={listItemDone[i].id} className="fas fa-times"></i></span></div>);
 
         return (
             <div className="list" >
@@ -160,10 +160,10 @@ class Todo extends React.Component {
         this.setDone = this.setDone.bind(this);
         this.itemToDelete = this.itemToDelete.bind(this);
         this.todoItem = this.todoItem.bind(this);
-        // this.state = {
-        //     done: [],
-        //     todo: []
-        // }
+        this.state = {
+            done: [],
+            todo: []
+        }
     }
     todoItem(item) {
         this.todoItem = item;
@@ -179,15 +179,15 @@ class Todo extends React.Component {
     //     })
     //     this.textInput.value = "";
     // }
-    itemToDelete() {
-        var deleteId = this.delete.id;
-        this.props.handleDelete(deleteId);
+    itemToDelete(e) {
+        debugger;
+        this.props.handleDelete(e.target.id);
     }
     render() {
         var listItem = this.props.listItem;
         var updatedTodo = listItem.map((x, i) =>
-            <div key={i} className="item"><div onClick={this.setDone} id={listItem[i].id} className="todoItem" ref={click => this.delete = click}>{listItem[i].task}</div>
-                <span className="icon" onClick={this.itemToDelete} className="x"><i className="fas fa-times"></i></span></div>);
+            <div key={i} className="item"><div onClick={this.setDone} id={listItem[i].id} className="todoItem">{listItem[i].task}</div>
+                <span className="icon" onClick={this.itemToDelete} className="x"><i id={listItem[i].id} className="fas fa-times"></i></span></div>);
         return (
             <div className="list">
                 <h3>Todo</h3>
